@@ -11,13 +11,19 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-2016]
+        os: [ubuntu, windows-2016]
 
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@master
         with:
           node-version: 12.16.1
+      - name: Set env vars on ubuntu-18.04
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+           echo "TAG=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
       - name: Set env vars on Windows
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,6 +35,12 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn run electron:build
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v1
+        if: startsWith(matrix.os, 'ubuntu')
+        with:
+          name: linux
+          path: dist_electron/Tiendatek-${{ env.TAG }}.AppImage
       - name: Upload Win artifacts
         uses: actions/upload-artifact@v1
         if: startsWith(matrix.os, 'windows')
