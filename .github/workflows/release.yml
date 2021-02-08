@@ -34,7 +34,7 @@ jobs:
       - name: yarn install
         run: yarn install
       - name: Build
-        run: yarn run electron:build -p never
+        run: yarn run electron:build -p always
       - name: Upload Linux artifacts
         uses: actions/upload-artifact@v1
         if: startsWith(matrix.os, 'ubuntu')
