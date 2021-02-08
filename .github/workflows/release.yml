@@ -40,10 +40,10 @@ jobs:
         if: startsWith(matrix.os, 'ubuntu')
         with:
           name: linux
-          path: dist_electron/Tiendatek-${{ env.TAG }}.AppImage
+          path: dist_electron/vue-electron-playground-${{ env.TAG }}.AppImage
       - name: Upload Win artifacts
         uses: actions/upload-artifact@v1
         if: startsWith(matrix.os, 'windows')
         with:
           name: win
-          path: dist_electron/Tiendatek Setup ${{ env.TAG }}.exe
+          path: dist_electron/vue-electron-playground Setup ${{ env.TAG }}.exe
