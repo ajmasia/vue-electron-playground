@@ -18,6 +18,13 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12.16.1
+      - name: Set env vars on Windows
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: startsWith(matrix.os, 'windows')
+        run: |
+          chcp 65001 #set code page to utf-8
+          echo ("TAG=" + (node -p "require('./package.json').version")) >> $env:GITHUB_ENV
       - name: yarn install
         run: yarn install
       - name: Build
