@@ -28,7 +28,7 @@ jobs:
       - name: yarn install
         run: yarn install
       - name: Build
-        run: yarn run electron:build -p always
+        run: yarn run electron:build
       - name: Upload Win artifacts
         uses: actions/upload-artifact@v1
         if: startsWith(matrix.os, 'windows')
