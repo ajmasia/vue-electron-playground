@@ -1,0 +1,30 @@
+name: build-release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12.16.1
+      - name: yarn install
+        run: yarn install
+      - name: Build
+        run: yarn run electron:build -p always
+      - name: Upload Win artifacts
+        uses: actions/upload-artifact@v1
+        if: startsWith(matrix.os, 'windows')
+        with:
+          name: win
+          path: dist_electron/Tiendatek Setup ${{ env.TAG }}.exe
