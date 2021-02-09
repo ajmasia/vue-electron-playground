@@ -12,7 +12,7 @@ module.exports = {
         appId: 'com.tiendatek.desktop',
         copyright: 'Copyright Frogtek',
         publish: {
-          provider: ['github'],
+          provider: 'github',
           // bucket: 'frogtek.ttdesktop',
         },
         mac: {
