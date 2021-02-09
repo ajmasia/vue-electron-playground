@@ -21,7 +21,7 @@ jobs:
       - name: Set env vars on ubuntu-18.04
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: startsWith(matrix.os, 'ubuntu')
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macOS')
         run: |
            echo "TAG=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
       - name: Set env vars on Windows
