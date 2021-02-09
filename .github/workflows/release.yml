@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-18.04, windows-2016]
+        os: [macOS-latest, ubuntu-18.04, windows-2016]
 
     steps:
       - uses: actions/checkout@v1
@@ -47,3 +47,9 @@ jobs:
         with:
           name: win
           path: dist_electron/vue-electron-playground Setup ${{ env.TAG }}.exe
+      - name: Upload Mac artifacts (dmg)
+        uses: actions/upload-artifact@v1
+        if: startsWith(matrix.os, 'macOS')
+        with:
+          name: mac-dmg
+          path: dist_electron/vue-electron-playground-${{ env.TAG }}.dmg
