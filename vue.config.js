@@ -1,37 +1,30 @@
 module.exports = {
-  pluginOptions: {
-    pages: {
-      index: {
-        entry: 'src/main.js',
-        title: 'vue-electron-playground',
-      },
+  pages: {
+    index: {
+      entry: 'src/main.js',
+      title: 'vue-electron-playground',
     },
+  },
+  pluginOptions: {
     electronBuilder: {
+      nodeIntegration: true,
       builderOptions: {
         appId: 'com.tiendatek.desktop',
         copyright: 'Copyright Frogtek',
+        publish: {
+          provider: ['github'],
+          // bucket: 'frogtek.ttdesktop',
+        },
         mac: {
           category: 'public.app-category.finance',
           target: ['dmg'],
-          publish: {
-            provider: ['github'],
-            // bucket: 'frogtek.ttdesktop',
-          },
         },
         win: {
           target: ['nsis'],
-          publish: {
-            provider: ['github'],
-            // bucket: 'frogtek.ttdesktop',
-          },
         },
         linux: {
           category: 'Office',
           target: ['AppImage'],
-          publish: {
-            provider: ['github'],
-            // bucket: 'frogtek.ttdesktop',
-          },
         },
       },
     },
