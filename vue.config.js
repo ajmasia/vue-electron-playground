@@ -15,13 +15,13 @@ module.exports = {
           provider: 'github',
           // bucket: 'frogtek.ttdesktop',
         },
-        mac: {
-          category: 'public.app-category.finance',
-          target: ['dmg'],
-        },
-        win: {
-          target: ['nsis'],
-        },
+        // mac: {
+        //   category: 'public.app-category.finance',
+        //   target: ['dmg'],
+        // },
+        // win: {
+        //   target: ['nsis'],
+        // },
         // linux: {
         //   category: 'Office',
         //   target: ['AppImage'],
