@@ -7,32 +7,30 @@ module.exports = {
       },
     },
     electronBuilder: {
-      electronBuilder: {
-        builderOptions: {
-          appId: 'com.tiendatek.desktop',
-          copyright: 'Copyright Frogtek',
-          mac: {
-            category: 'public.app-category.finance',
-            target: ['dmg'],
-            publish: {
-              provider: ['github'],
-              // bucket: 'frogtek.ttdesktop',
-            },
+      builderOptions: {
+        appId: 'com.tiendatek.desktop',
+        copyright: 'Copyright Frogtek',
+        mac: {
+          category: 'public.app-category.finance',
+          target: ['dmg'],
+          publish: {
+            provider: ['github'],
+            // bucket: 'frogtek.ttdesktop',
           },
-          win: {
-            target: ['nsis'],
-            publish: {
-              provider: ['github'],
-              // bucket: 'frogtek.ttdesktop',
-            },
+        },
+        win: {
+          target: ['nsis'],
+          publish: {
+            provider: ['github'],
+            // bucket: 'frogtek.ttdesktop',
           },
-          linux: {
-            category: 'Office',
-            target: ['AppImage'],
-            publish: {
-              provider: ['github'],
-              // bucket: 'frogtek.ttdesktop',
-            },
+        },
+        linux: {
+          category: 'Office',
+          target: ['AppImage'],
+          publish: {
+            provider: ['github'],
+            // bucket: 'frogtek.ttdesktop',
           },
         },
       },
