@@ -34,6 +34,8 @@ jobs:
       - name: yarn install
         run: yarn install
       - name: Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn run electron:build -p always
       - name: Upload Linux artifacts
         uses: actions/upload-artifact@v1
