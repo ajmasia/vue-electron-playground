@@ -22,10 +22,10 @@ module.exports = {
         win: {
           target: ['nsis'],
         },
-        linux: {
-          category: 'Office',
-          target: ['AppImage'],
-        },
+        // linux: {
+        //   category: 'Office',
+        //   target: ['AppImage'],
+        // },
       },
     },
   },
